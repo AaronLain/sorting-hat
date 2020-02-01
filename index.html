@@ -9,24 +9,20 @@
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-    <div id="jumbotron">
+    <div class="d-flex bd-highlight h-100">
+        <div id="jumbotron" class="flex-grow h-100">
             <div class="jumbotron" id="jumbo-button">
-            <h1 class="display-4">Sorting Hat</h1>
-            <p class="lead">Due to overwhelming demand, Hogwarts has outsourced their proprietary sorting hat algorithm to the cloud. This is the portal for said algorithm. Seriously.</p>
-            <hr class="my-4">
-            <p>Just click the button below to sort those pesky students!</p>
-            <a id ="btn-main" class="btn btn-primary btn-lg" href="#" role="button">Let's get sorting!</a>
+                <h1 class="display-4">Sorting Hat</h1>
+                <p class="lead">Due to overwhelming demand, Hogwarts has outsourced their proprietary sorting hat algorithm to the cloud. This is the portal for said algorithm. Seriously.</p>
+                <hr class="my-4">
+                <p>Just click the button below to sort those pesky students!</p>
+                <a id ="btn-main" class="btn btn-primary btn-lg" href="#" role="button">Let's get sorting!</a>
             </div>
+        </div>
+    </div>    
+    <div id="input-form" class="d-flex bd-highlight justify-content-center justify-content-around">
     </div>
-    <div id="input-form">
-            <form>
-                <div class="form-group">
-                    <label for="Name">Student's Name</label>
-                    <input type="text" class="form-control" id="inputName" aria-describedby="emailHelp" placeholder="Enter Name">
-                </div>
-                    <button type="submit" id="btn-sort" class="btn btn-success">Sort!</button>
-            </form>
-    <div id="student-cards" class= "d-flex flex-row bd-highlight mb-3">
+    <div id="student-cards" class= "d-flex flex-row flex-wrap bd-highlight mb-3 justify-content around">
 
     </div>
 <script src="./main.js"></script>
