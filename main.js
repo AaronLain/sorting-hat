@@ -57,28 +57,28 @@ const buildStudentCards = () => {
         domString +=    `<div class="card-body d-flex flex-column">`
         domString +=        `<h5 class="card-title text-center">${student.name}</h5>`
         domString +=        `<p class="card-text text-center">${student.house}</p>`
-        domString +=        `<a href="#" id="${student.id}" class="btn ${student.house} expell">Expell</a>`
+        domString +=        `<a href="#" id="${student.id}" class="btn ${student.house} expel">Expel</a>`
         domString +=    `</div>`
         domString += `</div>`
     });
     printToDom('student-cards', domString);
-    expellButtonLoop();
+    expelButtonLoop();
 };
 
-const expellButtonLoop = () => {
-    const expelledStudentButtons = document.getElementsByClassName('expell');
+const expelButtonLoop = () => {
+    const expelledStudentButtons = document.getElementsByClassName('expel');
     for (let i = 0; i < expelledStudentButtons.length; i++) {
-        expelledStudentButtons[i].addEventListener('click', expellStudentHTML);
-        expelledStudentButtons[i].addEventListener('click', expellStudentArray);
+        expelledStudentButtons[i].addEventListener('click', expelStudentHTML);
+        expelledStudentButtons[i].addEventListener('click', expelStudentArray);
     }
 };
 
-const expellStudentHTML = (e) => {
+const expelStudentHTML = (e) => {
     const buttonId = e.target.offsetParent;
     buttonId.remove();
 };
 
-const expellStudentArray = () => {
+const expelStudentArray = () => {
     studentArray.length -= 1;
 };
 
