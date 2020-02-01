@@ -6,3 +6,19 @@ body {
 h1 {
     text-align: center;
 }
+
+.Gryffindor {
+    background-color: #7E1318;
+}
+
+.Ravenclaw {
+    background-color: #283083;
+}
+
+.Hufflepuff {
+    background-color: #EBE316;
+}
+
+.Slytherin {
+    background-color: #146333;
+}
