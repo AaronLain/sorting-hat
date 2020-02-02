@@ -1,6 +1,9 @@
 body {
     background-color: slategrey;
     color: black;
+    font-family: 'Bebas Neue', serif;
+    font-size: 160%;
+
 }
 
 h1 {

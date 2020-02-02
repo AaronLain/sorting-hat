@@ -6,7 +6,7 @@ const clearDom = (divId) => {
 };
 
 const newStudent = () => {
-    let student = new Object();
+    let student = new Object(); // When the objects are stored in the array, their names are just index numbers. Maybe a way to change that?
     student.name = document.getElementById('inputName').value;
     student.id = Math.ceil(Math.random() * 124568)
     houseGenerator(student);
@@ -15,36 +15,37 @@ const newStudent = () => {
     } else {
         window.alert("You have to pick a name!")
     };
-}
+};
 
-const houseGenerator = (obj) => {
+const houseGenerator = (studentObject) => {
     switch (Math.ceil(Math.random() * 4)) {
         case 1:
-            obj.house = "Gryffindor"
+            studentObject.house = "Gryffindor"
             break;
         case 2:
-            obj.house = "Slytherin"
+            studentObject.house = "Slytherin"
             break;
         case 3:
-            obj.house = "Hufflepuff"
+            studentObject.house = "Hufflepuff"
             break;
         case 4:
-            obj.house = "Ravenclaw"
-    }
-}
+            studentObject.house = "Ravenclaw"
+    };
+};
 
 const buildForm = () => {
     let domString = '';
-    domString +=    `<form>`
-    domString +=        `<div class="form-group d-flex flex-column text-center">`
-    domString +=            `<label for="Name">Student's Name</label>`                   
-    domString +=            `<input type="text" class="form-control" id="inputName" aria-describedby="emailHelp" placeholder="Enter Name">`
-    domString +=        `</div>`
-    domString +=        `<button type="submit" id="btn-sort" class="btn btn-success w-100">Sort!</button>`
-    domString +=     `</form>`
+    domString += `<form>`
+    domString +=     `<div class="form-group d-flex flex-column text-center">`
+    domString +=         `<label for="Name">Student's Name</label>`                   
+    domString +=         `<input type="text" class="form-control" id="inputName" aria-describedby="emailHelp" placeholder="Enter Name">`
+    domString +=     `</div>`
+    domString +=    `<button type="submit" id="btn-sort" class="btn btn-success w-100">Sort!</button>`
+    domString += `</form>`
 
     printToDom('input-form', domString);
-}
+};
+
 const printToDom = (divId, textToPrint) => {
     const selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = textToPrint;
@@ -66,15 +67,15 @@ const buildStudentCards = () => {
 };
 
 const expelButtonLoop = () => {
-    const expelledStudentButtons = document.getElementsByClassName('expel');
-    for (let i = 0; i < expelledStudentButtons.length; i++) {
+    const expelledStudentButtons = document.getElementsByClassName('expel'); // Creates HTMLCollection object (~array-ish) which is a collection of all elements with an expel class
+    for (let i = 0; i < expelledStudentButtons.length; i++) {                // Apparently you can iterate across an HTMLCollection object. Neat-o!
         expelledStudentButtons[i].addEventListener('click', expelStudentHTML);
         expelledStudentButtons[i].addEventListener('click', expelStudentArray);
-    }
+    };
 };
 
 const expelStudentHTML = (e) => {
-    const buttonId = e.target.offsetParent;
+    const buttonId = e.target.offsetParent;    // For some reason this is how you target the immediate parent of the id lol shout-out to dev tools
     buttonId.remove();
 };
 
@@ -83,18 +84,19 @@ const expelStudentArray = () => {
 };
 
 const events = () => {
-    document.getElementById('btn-main').addEventListener('click', () => {
+    document.getElementById('btn-main').addEventListener('click', () => {   // Remove the jumbotron and build the form at the click of a button.
         clearDom('jumbotron');
         buildForm();
     });
     
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {    // Calls the desired functions ONLY when the specific button is pressed (without if-else, the script loads the function prior to building the necessary button, causing the site to poop its pants)
         if (e.target.id === 'btn-sort') {
             newStudent();
             buildStudentCards();
-        }
+            buildForm();                           // Calling this guy again resets the form!
+        };
     });
-}
+};
 
 const init = () => {
     events();
