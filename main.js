@@ -10,7 +10,7 @@ const newStudent = () => {
     student.name = document.getElementById('inputName').value;
     student.id = Math.ceil(Math.random() * 124568)
     houseGenerator(student);
-    if(student.name !== '') {
+    if(student.name !== '') {   // forces a name selection
         studentArray.push(student);
     } else {
         window.alert("You have to pick a name!")
@@ -37,7 +37,7 @@ const buildForm = () => {
     let domString = '';
     domString += `<form>`
     domString +=     `<div class="form-group d-flex flex-column text-center">`
-    domString +=         `<label for="Name">Student's Name</label>`                   
+    domString +=         `<h5><label for="Name">Student's Name</label></h5>`                   
     domString +=         `<input type="text" class="form-control" id="inputName" aria-describedby="emailHelp" placeholder="Enter Name">`
     domString +=     `</div>`
     domString +=    `<button type="submit" id="btn-sort" class="btn btn-success w-100">Sort!</button>`
@@ -80,7 +80,7 @@ const expelStudentHTML = (e) => {
 };
 
 const expelStudentArray = () => {
-    studentArray.length -= 1;
+    studentArray.length -= 1;                 // Right now this only removes the last item of the array, try to make it expell the student 
 };
 
 const events = () => {
