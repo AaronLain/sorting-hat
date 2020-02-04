@@ -1,4 +1,4 @@
-const studentArray = [];
+let studentArray = [];
 
 const clearDom = (divId) => {
     const element = document.getElementById(divId);
@@ -58,7 +58,7 @@ const buildStudentCards = () => {
         domString +=    `<div class="card-body d-flex flex-column">`
         domString +=        `<h5 class="card-title text-center">${student.name}</h5>`
         domString +=        `<p class="card-text text-center">${student.house}</p>`
-        domString +=        `<a href="#" id="${student.id}" class="btn ${student.house} expel">Expel</a>`
+        domString +=        `<a href="#" id=${student.id} class="btn ${student.house} ${student.name} expel">Expel</a>`
         domString +=    `</div>`
         domString += `</div>`
     });
@@ -72,6 +72,8 @@ const expelButtonLoop = () => {
         expelledStudentButtons[i].addEventListener('click', expelStudentHTML);
         expelledStudentButtons[i].addEventListener('click', expelStudentArray);
     };
+    
+    console.log(expelledStudentButtons);
 };
 
 const expelStudentHTML = (e) => {
@@ -79,8 +81,14 @@ const expelStudentHTML = (e) => {
     buttonId.remove();
 };
 
-const expelStudentArray = () => {
-    studentArray.length -= 1;                 // Right now this only removes the last item of the array, try to make it expell the student 
+const expelStudentArray = (e) => {
+    for (let i = 0; i < studentArray.length; i++) {
+        if (studentArray[i].id == e.target.id) {
+            studentArray.splice(studentArray[i], 1);    
+        };
+        console.log(studentArray[i])
+    };
+    
 };
 
 const events = () => {
