@@ -2,14 +2,43 @@ body {
     background-color: slategrey;
     color: black;
     font-family: 'Bebas Neue', serif;
-    font-size: 160%;
+    font-size: 200%;
 
+}
+
+p {
+    font-size: 145%;
+}
+
+h5 {
+    font-size: 200%;
 }
 
 h1 {
     text-align: center;
 }
 
+.btn-success {
+    font-size: 110%;
+}
+
+.expel {
+    font-size: 110%;
+}
+
+.jumbotron p {
+    font-size: 100%;
+    text-align: center;
+}
+
+.button {
+    font-size: 130%;
+    text-align: center;
+}
+
+a {
+    font-size: 130%;
+}
 .Gryffindor {
     background-color: #7E1318;
 }
