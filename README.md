@@ -1,6 +1,6 @@
 # Sorting Hat
 ## Description
-A portal to Hogwarts' new sorting hat! A demonstration of the ability to add things to an array, display them, then erase them properly.  
+A portal to Hogwarts' new sorting hat! A demonstration of the ability to add things to an array, display them, then erase them properly. This tech is worth billions.
 ## Screenshots
 ![Screenshot of sorting hat](https://i.ibb.co/tpjymVr/Screen-Shot-2020-02-18-at-10-14-35.png)
 ## How To Run
